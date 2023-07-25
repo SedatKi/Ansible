@@ -1,5 +1,0 @@
----
-  - name: Apache
-    hosts: localhost
-    tasks:
-      - name 
