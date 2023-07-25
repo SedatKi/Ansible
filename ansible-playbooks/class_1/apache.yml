@@ -1,0 +1,22 @@
+--- # Beginning of yaml file
+  - name: Apache # name of the play
+    hosts: localhost # target host
+    tasks: # tasks definition
+      - name: Install Apache # name of 1st task
+        dnf:
+          name: httpd
+          state: latest
+
+      - name: Start and Enable Apache # name of 2nd task
+        systemd:
+          name: httpd
+          state: started
+          enabled: yes
+
+      - name: Create custom index.html # name of 4th task
+        file:
+          path: /var/www/html/index.html
+          state: touch
+          owner: apache
+          group: apache
+          mode: 0644

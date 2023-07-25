@@ -1,0 +1,6 @@
+--- # Beginning of yaml file
+  - name: Ping Servers # name of the play
+    hosts: localhost # target host
+    tasks: # tasks definition
+      - name: Ping # name of 1st task
+        ping: # module to run
