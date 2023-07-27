@@ -1,0 +1,20 @@
+---
+  - name: Apache
+    hosts: localhost
+    become: true # Sudo privileges
+
+    tasks:
+      - name: Install Apache
+        package:
+          name: httpd
+          state: present
+      
+      - name: Enable Apache
+        service:
+          name: httpd
+          enabled: yes
+      
+      - name: Start Apache service
+        service:
+          name: httpd
+          state: started
