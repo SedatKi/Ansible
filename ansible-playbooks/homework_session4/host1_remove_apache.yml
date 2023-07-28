@@ -1,0 +1,23 @@
+---
+  - name: Apache Remove
+    hosts: app1 
+    become: true # Sudo privileges
+
+    tasks:
+      - name: Disable Apache
+        service:
+          name: httpd
+          enabled: no
+
+      - name: Stop Apache service
+        service:
+          name: httpd
+          state: stopped
+
+      - name: Remove Apache
+        yum:
+          name: httpd
+          state: removed
+
+      - name: Reboot machine
+        reboot:

@@ -1,0 +1,20 @@
+---
+  - name: Create Html file
+    hosts: app1
+    become: true
+
+    tasks: 
+      - name: Edit index.html line 1
+        lineinfile: 
+          path: /usr/share/nginx/html/index.html
+          insertafter: '</html>'
+          line: |
+            <!DOCTYPE html>
+            <html>
+            <body>
+
+            <h1>My Awesome <strong>nginx</strong> Web Page!</h1>
+            <p>It worked.</p>
+
+            </body>
+            </html>
